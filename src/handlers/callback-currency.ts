@@ -3,6 +3,7 @@ import geckoAPI from "../lib/geckoApi";
 import { cirrencyButtons } from "./start";
 import { BotContext } from "../lib/bot";
 import { currencySymbols } from "../services/bot.service";
+import { formatMSK } from "../utils";
 
 const keyboard = new InlineKeyboard([
   [InlineKeyboard.text("Обновить", "refresh")],
@@ -35,7 +36,7 @@ export async function handleCurrencyCallback(ctx: BotContext): Promise<void> {
 
   await ctx.editMessageText(
     `${price.id.toLocaleUpperCase()}: ${price.price} ${currencySymbols[price.currency] || price.currency}
-Обновлено: ${price.lastUpdated.toLocaleString()}`,
+Обновлено: ${formatMSK(price.lastUpdated)}`,
     {
       reply_markup: keyboard,
     },
