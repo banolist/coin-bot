@@ -1,0 +1,80 @@
+
+# =========================
+# Build & Output Directories
+# =========================
+dist
+.output
+.vinxi
+.wrangler
+.vercel
+.netlify
+
+# =========================
+# Config & Temp Files
+# =========================
+app.config.timestamp_*.js
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env*.local
+
+# =========================
+# Dependencies
+# =========================
+/node_modules
+
+# =========================
+# Package Managers
+# =========================
+.pnp.*
+.yarn/
+yarn.lock
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# =========================
+# IDEs and Editors
+# =========================
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# # =========================
+# # Drizzle ORM
+# # =========================
+# drizzle/
+
+# =========================
+# Logs & Databases
+# =========================
+logs/
+*.log
+*.sqlite
+*.db
+*.db-journal
+
+# =========================
+# TypeScript & Build Artifacts
+# =========================
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# =========================
+# Temp & System Files
+# =========================
+Thumbs.db
+.DS_Store
+*~
+*.swp
+*.swo
