@@ -30,6 +30,7 @@ EXPOSE 3000
 # Start the application in development mode
 CMD ["pnpm", "dev"]
 
+RUN pnpm build
 
 # Production stage
 FROM node:20-alpine AS production
@@ -46,7 +47,7 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --prod
 
 # Copy built application
-COPY --from=development --chown=coinbot:nodejs /app/dist ./dist
+COPY --from=development /app/dist ./dist
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs
