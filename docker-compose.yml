@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: coin-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./logs:/app/logs  # Optional: If you want to persist logs
+    networks:
+      - coinbot-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('assert')(typeof process !== 'undefined')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  coinbot-network:
+    driver: bridge

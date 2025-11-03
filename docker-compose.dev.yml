@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  bot-dev:
+    build:
+      context: .
+      target: development
+    container_name: coin-bot-dev
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules  # Avoid overriding node_modules with volume mount
+    networks:
+      - coinbot-network
+    command: ["pnpm", "dev"]  # Run in development mode with ts-node
+
+networks:
+  coinbot-network:
+    driver: bridge

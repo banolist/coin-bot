@@ -44,6 +44,7 @@ export class BotError extends Error {
 
     return message;
   }
+
   serialize() {
     const code: ErrorCode = `${this.type}:${this.surface}`;
     const { message, cause } = this;
