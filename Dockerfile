@@ -38,7 +38,7 @@ FROM node:20-alpine AS production
 WORKDIR /app
 
 # Install pnpm globally
-RUN npm install -g pnpm
+RUN apk add ca-certificates && npm install -g pnpm
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
