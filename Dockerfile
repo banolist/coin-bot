@@ -57,6 +57,8 @@ RUN adduser -S coinbot -u 1001
 RUN chown -R coinbot:nodejs /app
 USER coinbot
 
+ENV NODE_ENV=production 
+
 # Expose port (if needed for health checks or other purposes)
 EXPOSE 3000
 
