@@ -37,14 +37,14 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Install pnpm globally
-RUN apk add ca-certificates && npm install -g pnpm
-
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install only production dependencies
-RUN pnpm install --prod
+# Install pnpm globally
+RUN apk --no-cache add ca-certificates && \
+  update-ca-certificates && \
+  npm install -g pnpm && \
+  pnpm install --prod
 
 # Copy built application
 COPY --from=development /app/dist ./dist
