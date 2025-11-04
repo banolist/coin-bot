@@ -24,12 +24,6 @@ RUN adduser -S coinbot -u 1001
 RUN chown -R coinbot:nodejs /app
 USER coinbot
 
-# Expose port (if needed for health checks or other purposes)
-EXPOSE 3000
-
-# Start the application in development mode
-CMD ["pnpm", "dev"]
-
 RUN pnpm build
 
 # Production stage
@@ -37,19 +31,16 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install pnpm globally
-RUN apk --no-cache add ca-certificates && \
-  update-ca-certificates && \
-  npm install -g pnpm && \
+RUN apk --no-cache add ca-certificates curl && \
+  update-ca-certificates 
+
+RUN npm install -g pnpm && \
   pnpm install --prod
 
-# Copy built application
 COPY --from=development /app/dist ./dist
 
-# Create non-root user
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S coinbot -u 1001
 
@@ -59,7 +50,6 @@ USER coinbot
 
 ENV NODE_ENV=production 
 
-# Expose port (if needed for health checks or other purposes)
 EXPOSE 3000
 
 # Start the application
