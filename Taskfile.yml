@@ -1,0 +1,53 @@
+version: "3"
+
+vars:
+  NAMESPACE: banolist/coinbots
+  CHART_PATH: ./helm
+  SEALED_SECRETS_DIR: ./infra/sealed-secrets
+  IMAGE_REPO: ghcr.io/banolist/coin-bot
+  KUBE_NAMESPACE: "{{.NAMESPACE}}"
+
+tasks:
+  # build & push images (locally or in CI)
+  build:
+    cmds:
+      - docker build -t {{.IMAGE_REPO}}:latest .
+
+  push:
+    deps: [build]
+    cmds:
+      - docker push {{.IMAGE_REPO}}:latest
+
+  # Encrypt secrets (locally)
+  secrets:seal:
+    desc: Encrypt secrets using kubeseal (offline)
+    cmds:
+      - kubeseal --cert infra/sealed-secrets/pub-cert.pem --scope strict < secret-bots.yaml > {{.SEALED_SECRETS_DIR}}/bots-tokens.yaml
+      - kubeseal --cert infra/sealed-secrets/pub-cert.pem --scope strict < secret-global.yaml > {{.SEALED_SECRETS_DIR}}/bot-global-secret.yaml
+    preconditions:
+      - test -f secret-bots.yaml
+      - test -f secret-global.yaml
+      - test -f infra/sealed-secrets/pub-cert.pem
+  # apply secrets and chart
+  deploy:secrets:
+    desc: Apply Sealed Secrets
+    cmds:
+      - kubectl apply -k {{.SEALED_SECRETS_DIR}} --namespace {{.KUBE_NAMESPACE}}
+
+  deploy:helm:
+    desc: Deploy Helm chart
+    cmds:
+      - helm upgrade --install coin-bots {{.CHART_PATH}}
+        --namespace {{.KUBE_NAMESPACE}}
+        --create-namespace
+        --set image.repository={{.IMAGE_REPO}}
+        --set image.tag=latest
+
+  deploy:
+    desc: Full deploy (secrets + helm)
+    deps: [deploy:secrets, deploy:helm]
+
+  # restart pods (if secrets updated)
+  rollout:restart:
+    cmds:
+      - kubectl rollout restart deployment -l app=coinbot --namespace {{.KUBE_NAMESPACE}}
