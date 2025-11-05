@@ -1,7 +1,7 @@
 version: "3"
 
 vars:
-  NAMESPACE: banolist/coinbots
+  NAMESPACE: coinbots
   CHART_PATH: ./helm
   SEALED_SECRETS_DIR: ./infra/sealed-secrets
   IMAGE_REPO: ghcr.io/banolist/coin-bot
@@ -32,7 +32,7 @@ tasks:
   deploy:secrets:
     desc: Apply Sealed Secrets
     cmds:
-      - kubectl apply -k {{.SEALED_SECRETS_DIR}} --namespace {{.KUBE_NAMESPACE}}
+      - kubectl apply -f {{.SEALED_SECRETS_DIR}}/ --namespace {{.KUBE_NAMESPACE}}
 
   deploy:helm:
     desc: Deploy Helm chart

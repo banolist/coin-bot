@@ -48,8 +48,8 @@ spec:
             - name: BOT_TOKEN 
               valueFrom: 
                 secretKeyRef:
-                  name: bots-secrets
-                  key: {{ printf "bot-%s" .id }}
+                  name: bots-tokens
+                  key: bot-{{ .id }}
             - name: COINGECKO_API_KEY 
               valueFrom: 
                 secretKeyRef:

@@ -13,7 +13,7 @@
    kind: Secret
    metadata:
      name: bots-tokens
-     namespace: banolist/coinbots
+     namespace: coinbots
    type: Opaque
    stringData:
      bot-1: "1234567890:Abs..."
@@ -27,7 +27,7 @@
    kind: Secret
    metadata:
      name: bot-global-secret
-     namespace: banolist/coinbots
+     namespace: coinbots
    type: Opaque
    stringData:
      token: "coingecko token"

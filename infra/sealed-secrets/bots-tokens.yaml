@@ -3,19 +3,19 @@
   "apiVersion": "bitnami.com/v1alpha1",
   "metadata": {
     "name": "bots-tokens",
-    "namespace": "banolist/coinbots"
+    "namespace": "coinbots"
   },
   "spec": {
     "template": {
       "metadata": {
         "name": "bots-tokens",
-        "namespace": "banolist/coinbots"
+        "namespace": "coinbots"
       },
       "type": "Opaque"
     },
     "encryptedData": {
-      "bot-1": "AgB9fZ8eP3Xe9s2HLF7orlbMQZO9XOADiqEhWhW/yXg2M6DvOdqicl5ByfNMPKN7p6DWQY5OuZ43o0SZPsWlHfaVaZywSM86U8kQ4ao9vYKfWTSanh3LiTbpWLtxmNDlI/ovC/mQfzqqa2DGalVK7eU/zVzTgxTCyipmmYaR0muN2c1hOpFtABtsW9o3WcIC3r5BOMnIsgtik0q//n67ri+ZCowepmO6pep1VUOUUZph5no+FcnJLAoUwpYaieI3mLjUQ2CkZZG5hOc+cH1yGoxbxPi6+gdZ5Y51pu0JkSKZ5J49lGc76RImlk4M14IBAvhVEv0Lug56sXPc6hiXbvG2zMIp2IJHP77lUh4n5nMB9FnlwFAMAKW2gLPxpS3LWXvCNy0dj4wMiI2cyY9+VV3HkFi1x9UXp0fZTph5VHJshM1Cg72rNthap/WmPTHyLlfaKi+YWobd693o3pk/VifI2gkwLu1U7CN2X6jav5QOg3ulTKW0P5B0Qk83wCo/igi6XtO39go605IKolfX/yv6x2wcwiuAC+7dc4grIMM34zVeb3HKvilmPlE0SFWAgt9N53DtBo9aITNichLvbvjl2tk0N69v2suuqPmCbG3nw8bT7Iu5FZc7VggZbjdsl1MmotaqyTFZZ9kJMfCEhz6B558S0FLncsPk41u8rMRkie5sokx0gTO3x2LBmyNZNL08MgjkXGyHJGB0EH64kClhvpJB8BmJqnNNSMfyy4CeCyj45CKR0JOg4xNnKuaS",
-      "bot-2": "AgCPA9ty/CL6Fg+X02qVoQo1w9bbxeFOGoMfvQInQ+CaidxozcmhadyQ8uVBNUeQpf9ryoHyhNiv9RpQHEAMjxg8Gm3DAFXO4NGKrWjxmW3cODYQ8IAkEsIdUjVbDkeyycI3SRk3oCcKni0wsxoBOYswU/g2XFZwh7yQcR1Vs5POEvGny9cDisluGU4N1kayvhNSIfzgfdnTUs6zk09u1FCLbDynhEw4tbKEK/uE3ou4gHA2ucFzhBZv2/YtFhEZXU6cHZm+OAzuwhYMyiIDtMbtveLrsBE70veq8tcaL6Q89vLCCPdZ7M3lZLmfyAaDOQWhardKCTwOZVhQrrzbYw7QRuoOdK4BTrM3paP1/M7LTT6crPOU3memDhtBZAuXTy7+OhBTqAHNH0RNbO86ixnRtwJAPd3xAkOg6Lw4qzAzuw2q3diWkOjePCAZMpTPfVBFeoIYRGkhDebztp2xOjOsngHRFDIJ6mUVxUvFjPfSlyNO0gqf9QXwlQOuyC0lRD/SjeuX/y0GtdcWvooynQA0s7GDbwamOPpUHMcgbbFn1uURNgqR2t53SKIa8cZjwi70C2inW0dN2wBKMKS+ajZ1J/la4RQtu+mpGC0/1WNSsaN8NpI3YtOk65VQvpPCJyxoALhAeezTWFHta/K01/cDA9eRisOG+0HHkmEJFEUhVdsPeEtqsNczof16KnDh8eUNiCwS4xCUJH+mMiCX+hglouiFkDYXwPaO15PIm52PZlbekrcOsfodFvBkuLHe"
+      "bot-1": "AgCZMnXncK9zFBcbMZYl7EJHhZjj2jQ+OQTMjFyMad6xaCpU+ciVEEEtoQnme2D6NaInmecNRKOstywVkZAwho/y7xAk4hOA38+msjTG7jGou0s5T+lQRpoflQmPQ/BIFc1nPMqHY4rCXnPJfEO+gcLyueoTsn8WEqe8x8tihqIbXGRBakOpXphOGznNQckR36iMn1ESC4Rt67XMgeCdcTXiJ9WR2K5gFw9wn0bH6YkyyGjbT1qwrm7vsuzCIVTZVlmX3t1l31+puRXGnrMl1TD6+PRn+BR+1DrZfysvH7N+kcmAl0MTO2hF7zvSs/2OqUi6QQaVr7QalA/eiUR9OFqpxOPQcSYSbzjVQaj0mQZ2OvGbdjynRzzddeKjcKm2wy4UxY5R3T8usxUjYxV+Q8uDxwmln4ruKI2YEiM198QzzzSAUGwHZLh0pv6QYS76pGLk2YAmNrL19irkHpIg5zCADB1QXgc1U+YE0FtAm0YVB/ON7geJWsl0ojCcJlFcjwb1ekqXwTFJGu+ARjS6bucTgvaiP+wgUkOFVPWaF9yi7eiIrovGweOMO7NbuyIIDl/K5X+EeXs0FL4sjtnHRNW8xdZ/WOQn3PtmgUZw/1RLhp+nSb+FAeCgXM06Fe64Hn8AMBCZ1oVP7Wr+f2NWdUsclwOu3WTYIWrJVswbiB4qP46qAbUJSsh8ZxFxR4NKOYCbWA06FAnFxjuwe2XHzQ5sWeD7AWtQvk8OUrprUbmIlPZUf/Ujq1Os9dgQ+oXw",
+      "bot-2": "AgBfnmOGy1L0N/YTVMnZ2/XG+B1nGffdGPMqHM4KKOAZlhO20iCvTYr0SoDS9U7yk1vdOBIYn667f5tFOepdKmdheGmjK4VBjp4wHzzmq0HPpoZjeBdvFrRnrWItG0ub+1QDzLRtD+snHxxFAeu5cGlHoAIb4BZPRVbGDT6uVPzkHgYQPAi+RWBkTvO5rfIuJaQDuFO2SmupbzVBJmE4C3Xs+XkFof1WfsfSe7CGdc0BWQsWcTRnw+yCSnVLiAWlWmIeqLkQcGUGv86QsopxJ+0t6SwQBV4tgmD9DUgrLOKcpP5EgWGcDbq4u1muLkQfMVsvGuPy1ewdYIEE3gICkLJtGdgsuAY8vrfULYjReD9GD0atksfp+REFgm+Up3k4vGyWECxqWzrojQ/H4l4TDKY1UqwumJgw8sx2VyoYYytKIfOQxJDRrcmYwQqkm5FTEUkEtI5Ud6B/SzQ7iedEJp8LjCfAWgKa03VrEYoduXB0mw1wFSyXQNJBzXh9bCQqq9R5/+5lAk3k7rxRdjCqceSpuXvqh67sYymb4ir/4tD7W2kP3zAW069N4TuyrEvS9zq9HExR8L+EGmjg6Cqxhb23k5tn/rWvSglygWcEePlfsrLvICaQn6HVN2I8FEYHZio1eYABCtVlDaYXEgBY58KPtc4sDEhgqX/u3nAwOAPtnnQyYeuhIUVBYoVTBV1Ubo6tqQ9dOoljmeSCX82rTu8gEM1GCNPxoyeln2JL9n2EDE6zvBk17UjeiEE/M7Sl"
     }
   }
 }
